@@ -1,0 +1,56 @@
+<html>
+<head>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="js/views/summaryView.js" type="text/jsx"></script>
+    <script src="js/views/SidebarView.js" type="text/jsx"></script>
+    <script src="js/views/SearchView.js" type="text/jsx"></script>
+    <script src="js/views/promisedNoData.js" type="text/jsx"></script>
+
+    <script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
+
+    <script src="style.css"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="js/app.js" type="text/jsx"></script>
+    <script src="js/DinnerModel.js" type="text/jsx"></script>
+
+    <script src="js/apiConfig.js"></script>
+    <script src="js/dishSource.js"></script>
+
+    <script>
+        const React = {createElement: Vue.h};
+    </script>
+</head>
+
+<body>
+<div id="app"></div>
+</body>
+
+<script type="text/jsx">
+
+    const myModel = new DinnerModel(2);
+    const TopLevelModel = {
+        data() {
+            return {myModel: myModel};
+        },
+        render() {
+            return <App model={this.myModel}/>;
+        }
+    };
+
+
+    Promise.all(
+        [DishSource.getDishDetails(523145),
+            DishSource.getDishDetails(787321),
+            DishSource.getDishDetails(452179)]
+    ).then(function (values) {
+        values.map(d => myModel.addToMenu(d));   // add the dishes to the model
+        Vue.render(<TopLevelModel/>, document.getElementById("app"));
+    });
+
+
+</script>
+</html>

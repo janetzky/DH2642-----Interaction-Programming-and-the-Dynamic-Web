@@ -1,0 +1,272 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+h1,h2,h3,h4,h5,h6,span,div{
+    font-family: "Roboto", sans-serif;
+}
+
+.margin-left-10{
+    margin-left: 20px;
+}
+.padding{
+    padding: 20px;
+}
+.centeredNames {
+    text-align: center;
+}
+.container {
+    display: inline-block;
+    height: fit-content;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.11);
+}
+
+.chip{
+    text-transform: capitalize;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 0 12px;
+    border-radius: 32px;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 5px 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.text {
+    font-family: "Roboto", sans-serif;
+}
+
+.flexParent{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.flexChild{
+    //display: flex;
+    //display: inline-block;
+    display: block;
+}
+
+.debug{ border-style: solid; }
+
+
+
+
+/*Search View*/
+.resultsParent{
+    width: 100%;
+    flex-direction: row;
+    display: block;
+}
+.searchImage {
+    border-radius: 8px;
+    height: 250px;
+    width: 220px;
+    object-fit: cover;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
+}
+.searchResult {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 10px;
+    vertical-align: top;
+    float: left;
+    width: 250px;
+    min-height: 420px;
+    text-align: center;
+}
+.searchResult:hover {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+}
+.inlineHeader{
+    font-family: "Roboto", sans-serif;
+    font-size: x-large;
+    display: inline-block;
+    //float: left;
+    vertical-align: center;
+    padding: 20px;
+}
+/*^^^^Search View*/
+
+/* Details View*/
+.ingredients-section{
+    min-width: 250px;
+}
+.howToMake-section{
+    min-width: 200px;
+    max-width: 800px;
+}
+/* Details View*/
+
+
+
+
+
+.priceBox {
+    font-family: "Roboto", sans-serif;
+    padding: 20px;
+}
+
+.detailsImage {
+    display: inline-block;
+    border-radius: 8px;
+    height: 250px;
+    min-width: 150px;
+    max-width: 400px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Button */
+.button-19 {
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+}
+.button-19:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+.button-19:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+.button-19:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.8);
+}
+/* ^^^^^^Button */
+
+
+/*Sidebar View*/
+.ingredients {
+    //font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    overflow-wrap: break-word;
+}
+
+.ingredients td, .ingredients th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.ingredients tr:nth-child(even){background-color: #f2f2f2;}
+
+.ingredients tr:hover {background-color: #ddd;}
+
+.ingredients th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1899D6;
+    color: white;
+
+    //width: 100%;
+}
+/*^^^^^ Sidebar View*/
+
+
+
+
+.sidebar{
+   // display: block;
+    //min-width: 500px;
+    //width: 100%;
+    flex-basis: 50rem;
+    flex-grow: 1;
+
+    display: inline-block;
+    height: fit-content;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.11);
+}
+.mainContent{
+    width: 100%;
+    display: block;
+
+    min-width: 50%;
+}
+
+@media (max-width: 800px ){
+    .flexParent{flex-direction: column;}
+}
+body {
+    overflow: scroll; /* Show scrollbars */
+}
+
+.hidden{
+    display: none;
+    border-width: thick;
+    border-style: solid;
+}
+.test{
+    //border-width: thick;
+   // border-style: solid;
+   // border-color: red;
+}
+.search-box{
+    float: none;
+    display: inline-block;
+    text-align: left;
+    width: 40%;
+    margin: 10px;
+    padding: 14px;
+    border-radius: 8px;
+}
+.select-box{
+    float: none;
+    display: inline-block;
+    text-align: left;
+    width: 20%;
+    margin: 10px;
+    padding: 14px;
+    border-radius: 8px;
+}

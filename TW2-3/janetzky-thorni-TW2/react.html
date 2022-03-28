@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>React test app</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="js/views/detailsView.js" type="text/jsx"></script>
+    <script src="js/views/summaryView.js" type="text/jsx"></script>
+    <script src="js/views/SidebarView.js" type="text/jsx"></script>
+    <script src="js/views/SearchView.js" type="text/jsx"></script>
+    <script src="js/views/promisedNoData.js" type="text/jsx"></script>
+
+    <script src="js/DinnerModel.js" ></script>
+
+    <script src="js/apiConfig.js"></script>
+    <script src="js/dishSource.js"></script>
+    <script src="style.css"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+<body>
+<div id="app"></div>
+</body>
+
+<script type="text/jsx">
+
+    const searchPromise= DishSource.searchDishes({type:"main course", query:"pasta" });
+    function SearchTest(){
+        const [data, setData]=React.useState(null);
+        const [error, setError]=React.useState(null);
+        React.useEffect(function(){
+            searchPromise.then(dt=> setData(dt))
+                .catch(er=> setError(er))
+        }, []);
+        return (promiseNoData(searchPromise, data, error) ||
+            <SearchResultsView searchResults={data} dishChosen={console.log}/>);
+    }
+
+    const detailsPromise= DishSource.getDishDetails(523145);
+
+    function DetailsTest(){
+        const [data, setData]=React.useState(null);
+        const [error, setError]=React.useState(null);
+        React.useEffect(function(){
+            detailsPromise.then(dt=> setData(dt))
+                .catch(er=> setError(er))
+        }, []);
+        return (promiseNoData(detailsPromise, data, error) ||
+            <DetailsView dish={data} people={4} isDishInMenu={true}  dishChosen={console.log}/>);
+    }
+    ReactDOM.render(<div><SearchTest/>  <DetailsTest/></div>  , document.getElementById("app"))
+
+</script>
+
+</html>
